@@ -15,3 +15,5 @@ export class ConsultaService {
     return this.http.get(this.environmentUrl + fecha);
   }
 }
+
+/* algunos cambios */

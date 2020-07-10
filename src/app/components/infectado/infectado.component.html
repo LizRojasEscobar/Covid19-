@@ -1,0 +1,87 @@
+<div class="container" style="margin-top: 30px">
+
+  <hr>
+  <div class="container">
+    <img class="materialboxed" width="100%" src="assets/img/title2.jpg">
+  </div>
+  <hr>
+  <div class="row">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="dep" formControlName="departamento" type="text" class="form-control validate" [ngClass]="{ 'is-invalid': submitted && f.departamento.errors }" #departamento>
+          <label for="dep">Departamento</label>
+          <div *ngIf="submitted && f.departamento.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.departamento.errors.required">Departamento es obligatorio</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input id="pro" formControlName="provincia" #provincia type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.provincia.errors }">
+          <label for="pro">Provincia</label>
+          <div *ngIf="submitted && f.provincia.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.provincia.errors.required">Provincia es obligatorio</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input #distrito formControlName="distrito" id="dis" type="text" [ngClass]="{ 'is-invalid': submitted && f.distrito.errors }" class="form-control">
+          <label for="dis">Distrito</label>
+          <div *ngIf="submitted && f.distrito.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.distrito.errors.required">Distrito es obligatorio</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input #edad maxlength="40" formControlName="latitud" id="metodo" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.latitud.errors }">
+          <label for="latitud">Latitud</label>
+          <div *ngIf="submitted && f.latitud.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.latitud.errors.required">Latitud es obligatorio</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input (keypress)="numberOnly($event)" #edad maxlength="2" formControlName="edad" id="edad" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.edad.errors }">
+          <label for="edad">Edad</label>
+          <div *ngIf="submitted && f.edad.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.edad.errors.required">Edad es obligatorio</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input #edad maxlength="40" formControlName="longitud" id="long" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.longitud.errors }">
+          <label for="longitud">Longitud</label>
+          <div *ngIf="submitted && f.edad.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.longitud.errors.required">Longitud es obligatorio</div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <input #edad formControlName="metodo" id="metodo" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.metodo.errors }">
+          <label for="metodo">Metodo</label>
+          <div *ngIf="submitted && f.edad.errors" class="invalid-feedback red-text accent-4">
+            <div *ngIf="f.metodo.errors.required">Metodo es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 radio-vehicle">
+        <label>Genero</label>
+        <div>
+          <p *ngFor="let d of _genero_; let idx = index">
+            <label>
+              <input class="with-gap" [checked]="(idx === 0)" (change)="radioChangeHandle($event)" value="{{d}}" name="group1" type="radio" />
+              <span >{{d}}</span>
+              <div *ngIf="mostrar"  class="invalid-feedback red-text accent-4">
+                <div >Seleccione un item</div>
+              </div>
+            </label>
+
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m12">
+            <button class=" grey darken-2 form-group center btn waves-effect waves-light" type="submit" name="action">Registrar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div><br><br>
+</div>

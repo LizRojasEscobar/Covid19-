@@ -1,0 +1,42 @@
+<div class="container">
+
+  <br>
+  <div class="row">
+    <div class="container">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input #fecha placeholder="DD/MM/YYYY" type="text" class="datepicker">
+          </div>
+          <div class="input-field col s6">
+            <button class="grey darken-2 btn waves-effect waves-light" type="submit" name="action" (click)="cargar(fecha.value)"><i class="material-icons right">search</i>Buscar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <table class="highlight" style="cursor:pointer;">
+    <thead>
+      <tr>
+        <th>index</th>
+        <th>Departamento</th>
+        <th>Provincia</th>
+        <th>Distrito</th>
+        <th>Edad</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of datos let iden=index">
+        <td>{{(iden+1)}}</td>
+        <td>{{item.departamento}}</td>
+        <td>{{item.provincia}}</td>
+        <td>{{item.distrito}}</td>
+        <td>{{item.edad}}</td>
+        <td>{{item.fechaResultado}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
